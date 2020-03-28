@@ -21,7 +21,7 @@ public class FoodTruckMain {
 			if (!truckName.toLowerCase().equals("quit")) {
 				System.out.print("Food Style: ");
 				foodType = sc.nextLine();
-				System.out.print("Rating: ");
+				System.out.print("Rating: (1 - 5)");
 				rating = sc.nextDouble();
 				ft = new FoodTruck(truckName, foodType, rating);
 				foodCaravan[i] = ft;
@@ -39,7 +39,6 @@ public class FoodTruckMain {
 			System.out.println("4. quit");
 			System.out.print("Choice: ");
 			int userChoice = sc.nextInt();
-			System.out.println(spacing);
 			
 			switch(userChoice) {
 			case 1: 
@@ -55,7 +54,7 @@ public class FoodTruckMain {
 				System.out.println(spacing);
 				break;
 			case 2: 
-				int sum = 0;
+				double sum = 0;
 				int numOfTrucks = 0;
 				System.out.println(spacing);
 				for (int i = 0; i < foodCaravan.length; i++) {
@@ -66,7 +65,7 @@ public class FoodTruckMain {
 						break;
 					}
 				}				
-				System.out.println("Average rating: " + (sum/numOfTrucks) + " stars");
+				System.out.printf("Average rating: " + String.format("%.1f", (sum/numOfTrucks)) + "/5 stars");
 				System.out.println(spacing);
 				break;
 			case 3: 
@@ -87,6 +86,7 @@ public class FoodTruckMain {
 				break;
 			case 4:
 				System.out.println("Hope you had enough food truck food. Cheers!");
+				sc.close();
 				System.exit(0);
 			}
 		}
@@ -94,5 +94,4 @@ public class FoodTruckMain {
 	}
 }
 
-//			System.out.println(1);
 			

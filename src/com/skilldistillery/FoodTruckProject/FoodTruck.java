@@ -2,10 +2,12 @@ package com.skilldistillery.FoodTruckProject;
 
 public class FoodTruck {
 	private static int ID = 1;
+	private static double MAX_RATING = 5.0;
 	private int uniqueID;
 	private String name;
 	private String foodType;
 	private double rating;
+	
 	
 	public FoodTruck(String _name, String _foodtype, double _rating) {
 		uniqueID = ID;
@@ -47,7 +49,7 @@ public class FoodTruck {
 		return ("ID: " + uniqueID + "\n" +
 			"Name: " + name + "\n" +
 			"Food Type: " + foodType + "\n" +
-			"Rating: " + rating);
+			"Rating: " + String.format("%.1f", rating) +  MAX_RATING + " stars");
 	}
 	
 	
