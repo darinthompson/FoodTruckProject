@@ -6,7 +6,6 @@ public class FoodTruckMain {
 	private static int MAX_FOOD_TRUCKS = 5;
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
 		FoodTruck[] foodCaravan = new FoodTruck[MAX_FOOD_TRUCKS];
 		String spacing = "\n**************************\n";
@@ -39,9 +38,9 @@ public class FoodTruckMain {
 			System.out.println("4. quit");
 			System.out.print("Choice: ");
 			int userChoice = sc.nextInt();
-			
-			switch(userChoice) {
-			case 1: 
+
+			switch (userChoice) {
+			case 1:
 				System.out.println(spacing);
 				for (FoodTruck truck : foodCaravan) {
 					if (truck != null) {
@@ -53,27 +52,27 @@ public class FoodTruckMain {
 				}
 				System.out.println(spacing);
 				break;
-			case 2: 
+			case 2:
 				double sum = 0;
 				int numOfTrucks = 0;
 				System.out.println(spacing);
 				for (int i = 0; i < foodCaravan.length; i++) {
-					if(foodCaravan[i] != null) {
+					if (foodCaravan[i] != null) {
 						sum += foodCaravan[i].getRating();
 						numOfTrucks++;
 					} else {
 						break;
 					}
-				}				
-				System.out.printf("Average rating: " + String.format("%.1f", (sum/numOfTrucks)) + "/5 stars");
+				}
+				System.out.printf("Average rating: " + String.format("%.1f", (sum / numOfTrucks)) + "/ 5.0 stars");
 				System.out.println(spacing);
 				break;
-			case 3: 
+			case 3:
 				double maxRating = 0;
 				FoodTruck winningTruck = null;
 				for (int i = 0; i < foodCaravan.length; i++) {
-					if(foodCaravan[i] != null) {
-						if(foodCaravan[i].getRating() > maxRating) {
+					if (foodCaravan[i] != null) {
+						if (foodCaravan[i].getRating() > maxRating) {
 							maxRating = foodCaravan[i].getRating();
 							winningTruck = foodCaravan[i];
 						}
@@ -93,5 +92,3 @@ public class FoodTruckMain {
 
 	}
 }
-
-			

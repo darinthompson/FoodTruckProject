@@ -49,7 +49,7 @@ public class FoodTruck {
 		return ("ID: " + uniqueID + "\n" +
 			"Name: " + name + "\n" +
 			"Food Type: " + foodType + "\n" +
-			"Rating: " + String.format("%.1f", rating) +  MAX_RATING + " stars");
+			"Rating: " + String.format("%.1f", rating) + " / " + MAX_RATING + " stars");
 	}
 	
 	
