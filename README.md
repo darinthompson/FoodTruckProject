@@ -12,6 +12,7 @@ the data, see average rating, or view the highest rated food truck. One user is 
 - Stackoverflow / Google
 - Java
 - Terminal Commands
+- Yacht Rock Radio from Spotify
 
 ### Lessons Learned
 - The biggest obstacle I had when writing this program is that I assumed looping through an array would print out 'null' if
