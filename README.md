@@ -14,7 +14,7 @@ the data, see average rating, or view the highest rated food truck. One user is 
 - Terminal Commands
 
 ### Lessons Learned
-- The biggest obstacle I had when writing this program is that I assumed looping through an array even would print out 'null' if
+- The biggest obstacle I had when writing this program is that I assumed looping through an array would print out 'null' if
 the value at a certain index was null. But It doesn't. I realized that the compliler throws a nullpointerexception at runtime. In
 order to fix this, I had to check every iteration of the loop if the value at a certain position was null. If not print it, if not
 move on.
