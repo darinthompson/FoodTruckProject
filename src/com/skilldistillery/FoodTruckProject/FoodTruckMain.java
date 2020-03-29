@@ -3,12 +3,14 @@ package com.skilldistillery.FoodTruckProject;
 import java.util.Scanner;
 
 public class FoodTruckMain {
-	private static int MAX_FOOD_TRUCKS = 5;
+	private final static int MAX_FOOD_TRUCKS = 5;
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		FoodTruck[] foodCaravan = new FoodTruck[MAX_FOOD_TRUCKS];
-		String spacing = "\n**************************\n";
+		String bordernl = ("***************************************************\n");
+		String border = ("***************************************************");
+		String spacing = ("**\t                                         **\n");
 		double rating;
 		FoodTruck ft;
 		String truckName;
@@ -28,8 +30,6 @@ public class FoodTruckMain {
 					if (rating < 0 || rating > 5) {
 						System.err.println("\nNOT A VALID RATING!");
 						System.err.flush();
-						// System.out.println();
-						// System.out.println();
 					} else {
 						break;
 					}
@@ -41,33 +41,40 @@ public class FoodTruckMain {
 				break;
 			}
 		}
-		System.out.println(spacing);
 
 		while (true) {
-			System.out.println("1. Show all food trucks and data");
-			System.out.println("2. Show average rating of food trucks");
-			System.out.println("3. Show highest rated food truck");
-			System.out.println("4. quit");
-			System.out.print("Choice: ");
+			System.out.print(bordernl);
+			System.out.print("**\t                                         **\n");
+			System.out.print("**\t1. Show all food trucks and data         **\n");
+			System.out.print("**\t2. Show average rating of food trucks    **\n");
+			System.out.print("**\t3. Show highest rated food truck         **\n");
+			System.out.print("**\t4. quit                                  **\n");
+			System.out.print("**\t                                         **\n");
+			System.out.print(bordernl);
+			System.out.print("  \tChoice: ");
 			int userChoice = sc.nextInt();
-
+			System.out.println();
+			
+			
 			switch (userChoice) {
 			case 1:
-				System.out.println(spacing);
+				System.out.println("\t\tTHE TRUCKS");
+				System.out.println(border);
 				for (FoodTruck truck : foodCaravan) {
 					if (truck != null) {
+						System.out.println("##");
 						System.out.println(truck.toString());
-						System.out.println(spacing);
+						System.out.println("##");
+						System.out.println(border);
 					} else {
 						break;
 					}
 				}
-				System.out.println(spacing);
+				System.out.println();
 				break;
 			case 2:
 				double sum = 0;
 				int numOfTrucks = 0;
-				System.out.println(spacing);
 				for (int i = 0; i < foodCaravan.length; i++) {
 					if (foodCaravan[i] != null) {
 						sum += foodCaravan[i].getRating();
@@ -76,8 +83,12 @@ public class FoodTruckMain {
 						break;
 					}
 				}
-				System.out.printf("Average rating: " + String.format("%.1f", (sum / numOfTrucks)) + "/ 5.0 stars");
-				System.out.println(spacing);
+				System.out.print(bordernl);
+				System.out.print(spacing);
+				System.out.printf("**\tAverage rating: " + String.format("%.1f", (sum / numOfTrucks)) + "/ 5.0 stars\t         **\n");
+				System.out.print(spacing);
+				System.out.print(bordernl);
+				System.out.println();
 				break;
 			case 3:
 				FoodTruck[] highestRated = new FoodTruck[MAX_FOOD_TRUCKS];
@@ -106,20 +117,28 @@ public class FoodTruckMain {
 				}
 				
 				//Loops through and prints out all food that have the highest rating
-				System.out.println("THE HIGHEST RATED TRUCK(S): " + "\n**********");
-				for(FoodTruck t : highestRated) {
-					if(t != null) {
-						System.out.println(t.toString());
-						System.out.println(spacing);
+				System.out.println("\t\tTHE HIGHEST RATED TRUCK(S)");
+				System.out.println(border);
+				for (FoodTruck truck : highestRated) {
+					if (truck != null) {
+						System.out.println("##");
+						System.out.println(truck.toString());
+						System.out.println("##");
+						System.out.println(border);
+					} else {
+						break;
 					}
 				}
-
-				System.out.println(spacing);
+				System.out.println();
 				break;
 			case 4:
-				System.out.println("Hope you had enough food truck food. Cheers!");
+				System.out.println("  Hope you had enough food truck food. Cheers!");
 				sc.close();
 				System.exit(0);
+				break;
+			default:
+				System.out.println("\t*****NOT A VALID CHOICE!*****\n");
+				break;
 			}
 		}
 
