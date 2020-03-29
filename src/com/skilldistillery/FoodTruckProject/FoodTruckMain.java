@@ -10,18 +10,30 @@ public class FoodTruckMain {
 		FoodTruck[] foodCaravan = new FoodTruck[MAX_FOOD_TRUCKS];
 		String spacing = "\n**************************\n";
 		double rating;
+		FoodTruck ft;
+		String truckName;
+		String foodType;
 
+		System.out.println("Welcome to the great food truck cook off!");
 		for (int i = 0; i < MAX_FOOD_TRUCKS; i++) {
-			FoodTruck ft;
-			String truckName;
-			String foodType;
 			System.out.print("Name of Truck (type 'quit' to stop adding trucks): ");
 			truckName = sc.nextLine();
 			if (!truckName.toLowerCase().equals("quit")) {
 				System.out.print("Food Style: ");
 				foodType = sc.nextLine();
-				System.out.print("Rating: (1 - 5)");
-				rating = sc.nextDouble();
+				while (true) {
+					System.out.print("Rating: (1 - 5)");
+					System.out.flush();
+					rating = sc.nextDouble();
+					if (rating < 0 || rating > 5) {
+						System.err.println("\nNOT A VALID RATING!");
+						System.err.flush();
+						// System.out.println();
+						// System.out.println();
+					} else {
+						break;
+					}
+				}
 				ft = new FoodTruck(truckName, foodType, rating);
 				foodCaravan[i] = ft;
 				sc.nextLine();
@@ -68,19 +80,40 @@ public class FoodTruckMain {
 				System.out.println(spacing);
 				break;
 			case 3:
+				FoodTruck[] highestRated = new FoodTruck[MAX_FOOD_TRUCKS];
 				double maxRating = 0;
-				FoodTruck winningTruck = null;
+				
+				// Get's the highest rated rating of all the food trucks
 				for (int i = 0; i < foodCaravan.length; i++) {
 					if (foodCaravan[i] != null) {
 						if (foodCaravan[i].getRating() > maxRating) {
 							maxRating = foodCaravan[i].getRating();
-							winningTruck = foodCaravan[i];
 						}
 					} else {
 						break;
 					}
 				}
-				System.out.println(winningTruck.toString());
+				
+				// Adds and all Food Trucks that have the highest ratings
+				for (int i = 0; i < foodCaravan.length; i++) {
+					if (foodCaravan[i] != null) {
+						if (foodCaravan[i].getRating() == maxRating) {
+							highestRated[i] = foodCaravan[i];
+						} 
+					} else {
+						break;
+					}
+				}
+				
+				//Loops through and prints out all food that have the highest rating
+				System.out.println("THE HIGHEST RATED TRUCK(S): " + "\n**********");
+				for(FoodTruck t : highestRated) {
+					if(t != null) {
+						System.out.println(t.toString());
+						System.out.println(spacing);
+					}
+				}
+
 				System.out.println(spacing);
 				break;
 			case 4:
