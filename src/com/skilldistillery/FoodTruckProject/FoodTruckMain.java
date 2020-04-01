@@ -15,7 +15,7 @@ public class FoodTruckMain {
 		FoodTruck ft;
 		String truckName;
 		String foodType;
-
+        
 		System.out.println("Welcome to the great food truck cook off!");
 		for (int i = 0; i < MAX_FOOD_TRUCKS; i++) {
 			System.out.print("Name of Truck (type 'quit' to stop adding trucks): ");
