@@ -101,7 +101,7 @@ public class FoodTruckMain {
 							maxRating = foodCaravan[i].getRating();
 						}
 					} else {
-						break;
+						continue;
 					}
 				}
 				
@@ -112,7 +112,7 @@ public class FoodTruckMain {
 							highestRated[i] = foodCaravan[i];
 						} 
 					} else {
-						break;
+						continue;
 					}
 				}
 				
@@ -126,7 +126,7 @@ public class FoodTruckMain {
 						System.out.println("##");
 						System.out.println(border);
 					} else {
-						break;
+						continue;
 					}
 				}
 				System.out.println();
